@@ -20,12 +20,13 @@ knitr::opts_chunk$set(
 library(magrittr) # For the pipe
 source("cv_printing_functions.r")
 
+
+
 # Read in all data and initialize a CV printer object
 CV <- create_CV_object(
-  data_location = "C:/Users/danie/Documents/R/win-library/4.0/datadrivencv/sample_data",  
+  data_location = "https://docs.google.com/spreadsheets/d/1BeK8e3BtkxrD4vHi64_Ef0TeOb2TS2zSy6-qr5ZE-Tw/edit#gid=917338460",  
   pdf_mode = params$pdf_mode
 )
-
 ```
 
 
@@ -44,13 +45,6 @@ if(params$pdf_mode) {
 
 Aside
 ================================================================================
-
-```{r}
-# Build interactive network of positions colored by section
-# and connected if they occurred in the same year
-datadrivencv::build_network_logo(CV$entries_data)
-```
-
 
 ```{r}
 if(params$pdf_mode){
@@ -82,9 +76,6 @@ Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
 Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
-
-The source code is available [on github.com/nstrayer/cv](https://github.com/nstrayer/datadrivencv).
-
 Last updated on `r Sys.Date()`.
 
 
@@ -95,12 +86,6 @@ Main
 Daniel G. Cerritos Garcia {#title}
 --------------------------------------------------------------------------------
 
-```{r}
-# Note the special double pipe so we modify the CV object in place
-CV %<>% print_text_block("intro") 
-```
-
-
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
@@ -110,8 +95,7 @@ CV %<>% print_section('education')
 ```
 
 
-
-Research Experience {data-icon=laptop}
+Research Experience {data-icon=flask}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -119,86 +103,20 @@ CV %<>% print_section('research_positions')
 ```
 
 
-
-Industry Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('industy_experience_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('industry_positions')
-```
-
-<!-- These breaks just force a new page so section doesnt get cut off -->
-<br>
-<br>
-<br>
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('teaching_experience_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('teaching_positions')
-```
-
-
-
-Selected Data Science Writing {data-icon=chart-line}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('data_science_writing_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('data_science_writings')
-```
-
-
-
-Selected Press (About)  {data-icon=newspaper}
+Publications {data-icon=file-text-o}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('about_me_press')
+CV %<>% print_section('publications')
 ```
-
-
-<br>
-<br>
-
-
-Selected Press (By)  {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('by_me_press')
-```
-
-
-
-Selected Publications, Posters, and Talks {data-icon=book}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('academic_articles')
-```
-
-
 
 ```{r}
 CV %<>% print_links()
 ```
 
+Posters/Abstracts  {data-icon=sticky-note-o}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('poster')
+```
